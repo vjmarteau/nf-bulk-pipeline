@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: mambaorg/micromamba
+
+%files
+    R-modules.yaml /R-modules.yaml
+
+%post
+ apt-get update
+
+    export LANG=C.UTF-8 LC_ALL=C.UTF-8
+    export PATH=/opt/conda/bin:$PATH
+
+    micromamba install --yes --name base --file /R-modules.yaml
+
+    rm -f /R-modules.yaml
+
+    apt-get clean
+    micromamba clean --all --yes
+
+%environment
+    export LANG=C.UTF-8 LC_ALL=C.UTF-8
+    export PATH=/opt/conda/bin:$PATH
+
+%labels
+    Author vjmarteau
+    Version v0.0.1
