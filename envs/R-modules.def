@@ -1,8 +1,15 @@
 Bootstrap: docker
 From: mambaorg/micromamba
 
+%setup
+    mkdir -p ${SINGULARITY_ROOTFS}/opt/Rscripts
+    mkdir -p ${SINGULARITY_ROOTFS}/input_data
+    mkdir -p ${SINGULARITY_ROOTFS}/results
+    
+
 %files
     R-modules.yaml /R-modules.yaml
+    Reformat_pseudobulk.R /opt/Rscripts/Reformat_pseudobulk.R
 
 %post
  apt-get update
@@ -12,7 +19,7 @@ From: mambaorg/micromamba
 
     micromamba install --yes --name base --file /R-modules.yaml
 
-    rm -f /R-modules.yaml
+    rm -f /R-modules.yml
 
     apt-get clean
     micromamba clean --all --yes
