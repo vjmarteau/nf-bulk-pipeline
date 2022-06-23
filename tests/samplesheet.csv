@@ -1,0 +1,17 @@
+sample,fastq_1,fastq_2,group,internal_id
+TA1,/path/to/fastq/files/TA1_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA1_S1_L001_R2_001.fastq.gz,Ctrl,P150-Ctrl
+TA10,/path/to/fastq/files/TA10_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA10_S1_L001_R2_001.fastq.gz,A8,P168-A8
+TA11,/path/to/fastq/files/TA11_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA11_S1_L001_R2_001.fastq.gz,A9,P168-A9
+TA12,/path/to/fastq/files/TA12_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA12_S1_L001_R2_001.fastq.gz,A8A9,P168-A8A9
+TA13,/path/to/fastq/files/TA13_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA13_S1_L001_R2_001.fastq.gz,Ctrl,P146-Ctrl
+TA14,/path/to/fastq/files/TA14_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA14_S1_L001_R2_001.fastq.gz,A8,P146-A8
+TA15,/path/to/fastq/files/TA15_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA15_S1_L001_R2_001.fastq.gz,A9,P146-A9
+TA16,/path/to/fastq/files/TA16_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA16_S1_L001_R2_001.fastq.gz,A8A9,P146-A8A9
+TA2,/path/to/fastq/files/TA2_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA2_S1_L001_R2_001.fastq.gz,A8,P150-A8
+TA3,/path/to/fastq/files/TA3_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA3_S1_L001_R2_001.fastq.gz,A9,P150-A9
+TA4,/path/to/fastq/files/TA4_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA4_S1_L001_R2_001.fastq.gz,A8A9,P150-A8A9
+TA5,/path/to/fastq/files/TA5_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA5_S1_L001_R2_001.fastq.gz,Ctrl,P148-Ctrl
+TA6,/path/to/fastq/files/TA6_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA6_S1_L001_R2_001.fastq.gz,A8,P148-A8
+TA7,/path/to/fastq/files/TA7_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA7_S1_L001_R2_001.fastq.gz,A9,P148-A9
+TA8,/path/to/fastq/files/TA8_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA8_S1_L001_R2_001.fastq.gz,A8A9,P148-A8A9
+TA9,/path/to/fastq/files/TA9_S1_L001_R1_001.fastq.gz,/path/to/fastq/files/TA9_S1_L001_R2_001.fastq.gz,Ctrl,P168-Ctrl
