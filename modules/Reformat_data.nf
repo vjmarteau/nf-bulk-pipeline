@@ -15,14 +15,14 @@ process Reformat_data {
 	    val(prefix)
 
     output:
-        path("${prefix}_metadata.rds"), emit: metadata
-        path("${prefix}_count_mat.rds"), emit: count_mat
-        path("${prefix}_key.rds"), emit: key
+        path("${prefix}_metadata.tsv"), emit: metadata
+        path("${prefix}_count_mat.tsv"), emit: count_mat
+        path("${prefix}_gene_cnvan_key.tsv"), emit: gene_cnvan_key
 
 
 	script:
 	"""
-    Reformat_pseudobulk.R \\
+    Reformat_data.R \\
     --gene_counts=${gene_expression_matrix} \\
     --samplesheet=${samplesheet} \\
     --prefix=${prefix}

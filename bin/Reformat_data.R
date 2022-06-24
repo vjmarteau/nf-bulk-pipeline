@@ -24,31 +24,29 @@ conflict_prefer("rename", "dplyr")
 conflict_prefer("select", "dplyr")
 
 # Load parameters
-data <- read_tsv(arguments$gene_counts)
 metadata <- read_csv(arguments$samplesheet)
+data <- read_tsv(arguments$gene_counts)
 prefix <- arguments$prefix
 results_dir <- arguments$results_dir
 
 # Data wrangling
 metadata <- metadata |>
-  mutate(label = internal_id) |>
-  mutate(condition = factor(group)) |>
-  mutate(condition = fct_relevel(condition, c("Ctrl", "A8", "A9", "A8A9"))) |>
-  mutate(patient = factor(gsub("-.*", "", internal_id))) |>
+  mutate(label = internal_id, treatment = group) |>
+  mutate(patient = gsub("-.*", "", internal_id)) |>
   mutate(order = parse_number(sample)) |>
   arrange(order) |>
-  select(sample, label, condition, patient) |>
-  column_to_rownames(var = "sample")
+  select(sample, patient, treatment, label)
 
 count_mat <- data |>
   mutate(gene_id = gsub("\\.[0-9]*$", "", gene_id)) |>
-  column_to_rownames(var = "gene_id") |>
   select(-gene_name) |>
-  mutate_all(as.integer) |>
-  select(rownames(metadata))
+  mutate_at(vars(-("gene_id")), ceiling) |>
+  select(c("gene_id", metadata |> pull(1) )) |>
+  rename_with(.col = "gene_id", ~"ensembl")
 
-key <- data |>
+gene_cnvan_key <- data |>
   select(gene_id, gene_name) |>
-  mutate(gene_id = gsub("\\.[0-9]*$", "", gene_id))
+  mutate(gene_id = gsub("\\.[0-9]*$", "", gene_id)) |>
+  rename_with(.col = c("gene_id", "gene_name"), ~c("ensembl", "symbol"))
 
-lapply(c("metadata", "count_mat", "key"), function(x) saveRDS(get(x), file.path(results_dir, paste0(prefix, "_", x, ".rds"))))
+lapply(c("metadata", "count_mat", "gene_cnvan_key"), function(x) write_tsv(get(x), file.path(results_dir, paste0(prefix, "_", x, ".tsv"))))
