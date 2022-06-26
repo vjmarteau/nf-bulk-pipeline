@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 '
 Usage:
-  Reformat_pseudobulk.R --gene_counts=<gene_counts> --samplesheet=<samplesheet> --prefix=<prefix> [options]
+  Reformat_data.R --gene_counts=<gene_counts> --samplesheet=<samplesheet> --prefix=<prefix> [options]
 
 Mandatory arguments:
   --gene_counts=<gene_counts>   nfcore/rnaseq gene counts in TSV format
@@ -9,7 +9,7 @@ Mandatory arguments:
   --prefix=<prefix>             Prefix for output filenames
 
 Optional arguments:
-  --results_dir=<dir>         Output directory [default: ./]
+  --resDir=<resDir>         Output directory [default: ./]
 ' -> doc
 
 # load required packages
@@ -27,7 +27,7 @@ conflict_prefer("select", "dplyr")
 metadata <- read_csv(arguments$samplesheet)
 data <- read_tsv(arguments$gene_counts)
 prefix <- arguments$prefix
-results_dir <- arguments$results_dir
+resDir <- arguments$resDir
 
 # Data wrangling
 metadata <- metadata |>
@@ -49,4 +49,4 @@ gene_cnvan_key <- data |>
   mutate(gene_id = gsub("\\.[0-9]*$", "", gene_id)) |>
   rename_with(.col = c("gene_id", "gene_name"), ~c("ensembl", "symbol"))
 
-lapply(c("metadata", "count_mat", "gene_cnvan_key"), function(x) write_tsv(get(x), file.path(results_dir, paste0(prefix, "_", x, ".tsv"))))
+lapply(c("metadata", "count_mat", "gene_cnvan_key"), function(x) write_tsv(get(x), file.path(resDir, paste0(prefix, "_", x, ".tsv"))))

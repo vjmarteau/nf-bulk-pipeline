@@ -6,7 +6,7 @@ mode = params.publish_dir_mode
 process Reformat_data {
     //Packages dependencies
     //conda "conda-forge::r-base=4.1.2 conda-forge::r-docopt=0.7.1 conda-forge::r-conflicted=1.1.0 conda-forge::dplyr=1.3.1"
-    // container "./envs/R-modules.sif" // Can be specified in .config file
+    //container "./envs/nf-bulk-r.sif" // Can be specified in .config file
     publishDir "${out_dir}", mode: "$mode"
 
     input:
