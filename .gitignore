@@ -1,4 +1,5 @@
 .nextflow*
+envs/*.sif
 work/
 data/
 results/
