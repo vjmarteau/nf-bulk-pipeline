@@ -1,5 +1,5 @@
 # Conda environment for R scripts
-name: R-modules
+name: nf-bulk-r
 channels:
   - conda-forge
   - bioconda

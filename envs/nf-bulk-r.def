@@ -2,14 +2,13 @@ Bootstrap: docker
 From: mambaorg/micromamba
 
 %setup
-    mkdir -p ${SINGULARITY_ROOTFS}/opt/Rscripts
     mkdir -p ${SINGULARITY_ROOTFS}/input_data
     mkdir -p ${SINGULARITY_ROOTFS}/results
     
 
 %files
-    R-modules.yaml /R-modules.yaml
-    Reformat_pseudobulk.R /opt/Rscripts/Reformat_pseudobulk.R
+    nf-bulk-r.yaml /nf-bulk-r.yaml
+
 
 %post
  apt-get update
@@ -17,9 +16,9 @@ From: mambaorg/micromamba
     export LANG=C.UTF-8 LC_ALL=C.UTF-8
     export PATH=/opt/conda/bin:$PATH
 
-    micromamba install --yes --name base --file /R-modules.yaml
+    micromamba install --yes --name base --file /nf-bulk-r.yaml
 
-    rm -f /R-modules.yml
+    rm -f /nf-bulk-r.yaml
 
     apt-get clean
     micromamba clean --all --yes
