@@ -5,6 +5,7 @@ nextflow.enable.dsl=2
 include { Reformat_data } from "./modules/Reformat_data"
 include { DESeq2_DGEA } from "./modules/DESeq2_DGEA"
 include { Draw_volcano } from "./modules/Draw_volcano"
+include { Plot_GOI_levels } from "./modules/Plot_GOI_levels"
 
 workflow {
     // Retrieve and validate parameters
@@ -23,4 +24,5 @@ workflow {
     Reformat_data(samplesheet, gene_expression_matrix, prefix)
     DESeq2_DGEA(Reformat_data.out.metadata, Reformat_data.out.count_mat, Reformat_data.out.gene_cnvan_key, model, treat_col, prefix)
     Draw_volcano(DESeq2_DGEA.out.de_res, GOI, pCutoff, FCcutoff, prefix)
+    Plot_GOI_levels(Reformat_data.out.metadata, Reformat_data.out.count_mat, Reformat_data.out.gene_cnvan_key, GOI, model, prefix)
 }
