@@ -4,15 +4,15 @@ Usage:
   Draw_volcano.R --de_res=<de_res> --GOI=<GOI> --prefix=<prefix> [options]
 
 Mandatory arguments:
-  --de_res=<de_res>           TopTable from DESeq2 in TSV format
-  --GOI=<GOI>                 Genes of interest in txt format
-  --prefix=<prefix>           Prefix for output filenames
+  --de_res=<de_res>                   TopTable from DESeq2 in TSV format
+  --GOI=<GOI>                         Genes of interest in txt format
+  --prefix=<prefix>                   Prefix for output filenames
 
 Optional arguments:
-  --contrast_name=<contrast_name>
-  --pCutoff=<pCutoff>         Cut-off for statistical significance [default: 0.05]
-  --FCcutoff=<FCcutoff>       Cut-off for absolute log2 fold-change [default: 2]
-  --resDir=<resDir>           Output directory [default: ./]
+  --contrast_name=<contrast_name>     Contrast names from .tsv file names
+  --pCutoff=<pCutoff>                 Cut-off for statistical significance [default: 0.05]
+  --FCcutoff=<FCcutoff>               Cut-off for absolute log2 fold-change [default: 2]
+  --resDir=<resDir>                   Output directory [default: ./]
 ' -> doc
 
 library(conflicted)
@@ -31,7 +31,6 @@ FCcutoff <- as.numeric(arguments$FCcutoff)
 prefix <- arguments$prefix
 contrast_name <- as.character(arguments$contrast_name)
 resDir <- arguments$resDir
-
 
 # Make volcano plots using "EnhancedVolcano" package
 

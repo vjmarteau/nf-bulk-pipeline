@@ -9,7 +9,7 @@ Mandatory arguments:
   --prefix=<prefix>             Prefix for output filenames
 
 Optional arguments:
-  --resDir=<resDir>         Output directory [default: ./]
+  --resDir=<resDir>             Output directory [default: ./]
 ' -> doc
 
 # load required packages

@@ -12,7 +12,7 @@ Mandatory arguments:
   --prefix=<prefix>         Prefix for output filenames
 
 Optional arguments:
-  --resDir=<resDir>           Output directory [default: ./]
+  --resDir=<resDir>         Output directory [default: ./]
 ' -> doc
 
 library(conflicted)
@@ -26,10 +26,6 @@ library(tidyverse)
 library(DESeq2)
 library(RColorBrewer)
 library(cowplot)
-
-conflict_prefer("rename", "dplyr")
-conflict_prefer("select", "dplyr")
-conflict_prefer("filter", "dplyr")
 
 # Load parameters
 count_mat <- read_tsv(arguments$count_mat)
@@ -88,7 +84,6 @@ l <- lapply(seq_along(GOI), function(i) plot_GOI(dds = dds, GOI = GOI[i]) + them
 
 # Custom function to limit number of plots on single A4 page to 24 GOIs. If number > 24 plots are pushed to next page
 plot_dim <- function(my_list) {
-  
   n <- length(my_list)
   k <- 24 # max number of genes per page + legend = 5*5 = 25
   sub_l <- split(my_list, rep(1:ceiling(n/k), each = k)[1:n])

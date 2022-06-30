@@ -11,7 +11,7 @@ Mandatory arguments:
   --prefix=<prefix>         Prefix for output filenames
 
 Optional arguments:
-  --resDir=<resDir>           Output directory [default: ./]
+  --resDir=<resDir>         Output directory [default: ./]
 ' -> doc
 
 library(conflicted)
@@ -25,9 +25,6 @@ library(tidyverse)
 library(DESeq2)
 library(variancePartition)
 
-conflict_prefer("rename", "dplyr")
-conflict_prefer("select", "dplyr")
-conflict_prefer("filter", "dplyr")
 conflict_prefer("expand", "tidyr")
 
 # Load parameters

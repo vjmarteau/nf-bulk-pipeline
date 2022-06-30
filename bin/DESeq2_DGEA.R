@@ -25,8 +25,6 @@ library(tidyverse)
 library(DESeq2)
 library(IHW)
 
-conflict_prefer("rename", "dplyr")
-conflict_prefer("select", "dplyr")
 conflict_prefer("filter", "dplyr")
 
 # Load parameters
