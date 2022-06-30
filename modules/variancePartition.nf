@@ -23,7 +23,7 @@ process variancePartition {
     --count_mat=${count_mat} \\
     --metadata=${metadata} \\
     --cnvan_key=${gene_cnvan_key} \\
-    --model=${model} \\
+    --model="${model}" \\
     --prefix=${prefix}
 	"""
 }

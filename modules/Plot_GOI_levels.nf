@@ -24,7 +24,7 @@ process Plot_GOI_levels {
     --metadata=${metadata} \\
     --cnvan_key=${gene_cnvan_key} \\
     --GOI=${GOI} \\
-    --model=${model} \\
+    --model="${model}" \\
     --prefix=${prefix}
 	"""
 }

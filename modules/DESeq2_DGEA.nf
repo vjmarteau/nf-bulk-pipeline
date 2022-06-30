@@ -24,7 +24,7 @@ process DESeq2_DGEA {
     --count_mat=${count_mat} \\
     --metadata=${metadata} \\
     --cnvan_key=${gene_cnvan_key} \\
-    --model=${model} \\
+    --model="${model}" \\
     --treat_col=${treat_col} \\
     --prefix=${prefix}
 	"""
