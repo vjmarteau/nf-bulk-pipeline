@@ -21,7 +21,7 @@ jobs:
         with:
           singularity-version: 3.8.7
 
-      - name: Setup Nextflow and run on test data
+      - name: Setup Nextflow
         uses: MillironX/setup-nextflow@v1
         
       - name: Run test
