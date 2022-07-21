@@ -23,4 +23,6 @@ jobs:
 
       - name: Setup Nextflow and run on test data
         uses: MillironX/setup-nextflow@v1
+        
+      - name: Run test
         run: nextflow run main.nf
