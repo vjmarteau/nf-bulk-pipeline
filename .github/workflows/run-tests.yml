@@ -23,4 +23,4 @@ jobs:
         uses: MillironX/setup-nextflow@v1
         
       - name: Run test
-        run: nextflow run ${GITHUB_WORKSPACE} -profile test
+        run: nextflow run ${GITHUB_WORKSPACE}
