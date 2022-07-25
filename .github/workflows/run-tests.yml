@@ -1,0 +1,26 @@
+# This workflow will run the nf-bulk-pipeline with testdata
+
+name: CI/CD Pipeline with Nextflow and Singularity
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run workflow tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out pipeline code
+        uses: actions/checkout@v3
+
+      - name: Setup Singularity
+        uses: eWaterCycle/setup-singularity@v7
+
+      - name: Setup Nextflow
+        uses: MillironX/setup-nextflow@v1
+        
+      - name: Run test
+        run: nextflow run ${GITHUB_WORKSPACE} -profile test,standard
