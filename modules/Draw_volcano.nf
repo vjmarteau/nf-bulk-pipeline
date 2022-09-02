@@ -9,7 +9,7 @@ process Draw_volcano {
     publishDir "${out_dir}", mode: "$mode"
 
     input:
-        each path(de_res)
+        path(de_res)
 	    path(GOI)
 	    val(pCutoff)
 	    val(FCcutoff)
