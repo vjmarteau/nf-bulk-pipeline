@@ -7,6 +7,7 @@ include { DESeq2_DGEA } from "./modules/DESeq2_DGEA"
 include { Draw_volcano } from "./modules/Draw_volcano"
 include { Plot_GOI_levels } from "./modules/Plot_GOI_levels"
 include { variancePartition } from "./modules/variancePartition"
+include { Render_Report } from "./modules/Render_Report"
 
 workflow {
     // Retrieve and validate parameters
@@ -20,6 +21,7 @@ workflow {
     treat_col = params.treat_col
     pCutoff = params.pCutoff
     FCcutoff = params.FCcutoff
+    Report = file("${projectDir}/analysis")
 
     // start workflow
     Reformat_data(samplesheet, gene_expression_matrix, prefix)
@@ -27,5 +29,6 @@ workflow {
     Draw_volcano(DESeq2_DGEA.out.de_res.flatten(), GOI, pCutoff, FCcutoff, prefix)
     Plot_GOI_levels(Reformat_data.out.metadata, Reformat_data.out.count_mat, Reformat_data.out.gene_cnvan_key, GOI, model, prefix)
     variancePartition(Reformat_data.out.metadata, Reformat_data.out.count_mat, Reformat_data.out.gene_cnvan_key, model, prefix)
+    Render_Report(Report, Reformat_data.out.metadata, DESeq2_DGEA.out.de_res.collect(), Draw_volcano.out.volcano_plots.collect(), Plot_GOI_levels.out.GOI_expression_level_plots.collect(), variancePartition.out.variancePartition_plot)
 }
 

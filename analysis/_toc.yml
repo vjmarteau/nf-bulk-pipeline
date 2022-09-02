@@ -1,0 +1,9 @@
+format: jb-book
+root: welcome
+parts:
+  - caption: Introduction
+    chapters:
+    - file: markdown
+  - caption: Analysis 1
+    chapters:
+    - file: markdown2
