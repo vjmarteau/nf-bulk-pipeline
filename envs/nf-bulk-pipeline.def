@@ -16,9 +16,9 @@ From: mambaorg/micromamba
     export LANG=C.UTF-8 LC_ALL=C.UTF-8
     export PATH=/opt/conda/bin:$PATH
 
-    micromamba install --yes --name base --file /nf-bulk-r.yaml
+    micromamba install --yes --name base --file /nf-bulk-pipeline.yaml
 
-    rm -f /nf-bulk-r.yaml
+    rm -f /nf-bulk-pipeline.yaml
 
     apt-get clean
     micromamba clean --all --yes
@@ -29,4 +29,4 @@ From: mambaorg/micromamba
 
 %labels
     Author vjmarteau
-    Version v0.0.1
+    Version v1.0.0
